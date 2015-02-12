@@ -1,8 +1,8 @@
 Feature List :
-1) Content Management
-2) Searching filtering and Sorting
-3) Versioning
-4) User Access Management
-5) Comments
-6) Tags and Category
-7) Likes and Ratings
+### Content Management
+### Searching filtering and Sorting
+### User Access Management
+### Versioning
+### Comments
+### Tags and Category
+### Likes and Ratings
