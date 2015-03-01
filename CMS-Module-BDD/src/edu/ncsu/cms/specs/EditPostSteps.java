@@ -20,9 +20,15 @@ public class EditPostSteps {
  
 	
 	@Then("I see post is edited by $role")
-	public void thenPostObjShouldBe(String role) {
+	public void thenUserRoleCanBe(String role) {
 		if (role=="Manager")
-			throw new RuntimeException("new post Object not created!");
+			throw new RuntimeException("User should be manager!");
+	}
+	
+	@Then("I see post is edited by $role not others")
+	public void thenUserRoleShouldBe(String role) {
+		if (role=="PostOwner")
+			throw new RuntimeException("User should be owner!");
 	}
 
 }
