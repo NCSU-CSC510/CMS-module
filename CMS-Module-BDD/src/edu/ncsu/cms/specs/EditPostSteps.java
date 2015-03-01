@@ -30,5 +30,11 @@ public class EditPostSteps {
 		if (role=="PostOwner")
 			throw new RuntimeException("User should be owner!");
 	}
+	
+	@Then("I see post is edited by $role person")
+	public void thenUserRoleShouldNotBe(String role) {
+		if (role!="PostOwner" || role!="Manager")
+			throw new RuntimeException("User should be either PostOwner or Manger!");
+	}
 
 }
