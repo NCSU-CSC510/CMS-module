@@ -26,5 +26,9 @@ public class PostManager {
 		return postLists.get(postID);
 	}
 	
+	public Post editPost(Post p, int VersionID) {
+		
+		return p;
+	}
 	
 }
