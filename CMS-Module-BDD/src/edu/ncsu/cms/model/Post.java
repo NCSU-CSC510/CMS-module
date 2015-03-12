@@ -14,6 +14,7 @@ public class Post {
 		idCounter++;
 		currentVersion=new Version();
 		currentVersion.setState(State.DRAFT);
+		currentVersion.setVersionId(1);
 		versionList.add(currentVersion);
 		postId=idCounter;
 	}

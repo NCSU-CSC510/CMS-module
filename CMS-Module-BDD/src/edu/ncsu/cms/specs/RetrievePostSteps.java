@@ -20,6 +20,17 @@ public class RetrievePostSteps {
 			postApi.createPost();
 	}
 	
+	@When("I try to retrieve a post using postid=$postid")
+	public void retrieveJustPostTestWhen(@Named("postid") int postId) {
+		retrievedPost = postApi.retrievePost(postId);
+	}
+	
+	@Then("I get the post with postid=$postid")
+	public void retrieveJustPostTestThen(@Named("postid") int postId) {
+		if(retrievedPost.getPostId() != postId)
+			throw new RuntimeException("Postid should be " + postId);
+	}
+	
 	@When("I try to retrieve a post using postid=$postid, versionid=$versionid")
 	public void retrievePostTestWhen(@Named("postid") int postId, @Named("versionid") int versionid) {
 		retrievedPost = postApi.retrievePost(postId);
@@ -34,9 +45,17 @@ public class RetrievePostSteps {
 			throw new RuntimeException("Versionid should be " + versionid);
 	}
 	
-	@Then("I get null")
+	@Then("I get post null")
 	public void retrievePostTestNull() {
 		if(retrievedPost != null)
 			throw new RuntimeException("Invalid post should be null");
+	}
+	
+	@Then("I get version null")
+	public void retrieveVersionTestNull() {
+		if(retrievedPost == null)
+			throw new RuntimeException("Valid post should not be null");
+		if(retrievedVersion != null)
+			throw new RuntimeException("Invalid version should be null");
 	}
 }
