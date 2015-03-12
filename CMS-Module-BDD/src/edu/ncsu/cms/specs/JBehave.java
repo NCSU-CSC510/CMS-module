@@ -20,12 +20,11 @@ public class JBehave  extends JUnitStories {
  
 	@Override
 	public InjectableStepsFactory stepsFactory() {
-		return new InstanceStepsFactory(configuration(), new ExampleSteps());
+		return new InstanceStepsFactory(configuration(), new RetrievePostSteps(), new EditPostSteps());
 	}
  
 	@Override
 	protected List<String> storyPaths() {
-		return Arrays.asList("edu\\ncsu\\cms\\specs\\stories\\EditPosts.story");
+		return Arrays.asList("edu\\ncsu\\cms\\specs\\stories\\EditPosts.story", "edu\\ncsu\\cms\\specs\\stories\\RetrievePosts.story");
 	}
-
 }
