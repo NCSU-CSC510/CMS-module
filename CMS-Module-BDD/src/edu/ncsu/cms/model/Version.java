@@ -9,6 +9,11 @@ public class Version {
 	private String userId;
 	private Timestamp timestamp;
 	private State state;
+	private static int versionCnt;
+	
+	public Version() {
+		versionId = versionCnt++;
+	}
 	
 	public String getContent() {
 		return content;

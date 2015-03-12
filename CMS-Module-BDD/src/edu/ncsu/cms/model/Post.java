@@ -28,6 +28,13 @@ public class Post {
 		return currentVersion;
 	
 	}
+	public Version getVersion(int versionid) {
+		for(Version v : versionList) {
+			if(v.getVersionId() == versionid)
+				return v;
+		}
+		return null;
+	}
 	public void updateVersion(String content){
 	
 		

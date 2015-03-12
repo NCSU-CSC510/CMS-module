@@ -25,6 +25,10 @@ public class PostManager {
 	public Post getPostById(int postID){
 		return postLists.get(postID);
 	}
+	public Version getPostById(int postID, int versionid){
+		Post post = postLists.get(postID);
+		return post.getVersion(versionid);
+	}
 	
 	public Post editPost(Post p, int VersionID) {
 		

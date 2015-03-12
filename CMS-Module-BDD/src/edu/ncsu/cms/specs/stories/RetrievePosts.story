@@ -1,5 +1,6 @@
 Scenario: Retrieve a post using postid, versionid
 
+Given number of posts 1
 When I try to retrieve a post using postid=1, versionid=1
 Then I get the post with postid=1, versionid=1
 
