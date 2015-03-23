@@ -34,5 +34,8 @@ public class PostManager {
 		
 		return p;
 	}
-	
+	public boolean deletePost(int VersionID){
+		Post p= postLists.remove(VersionID);
+		return p!=null;
+	}
 }
