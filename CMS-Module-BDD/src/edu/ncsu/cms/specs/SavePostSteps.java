@@ -12,6 +12,7 @@ public class SavePostSteps extends Steps{
 	PostApi postApi = new PostApi();
 	Post retrievedPost;
 	Version retrievedVersion;
+	String content1;
 	
 	@Given("number of posts $num")
 	public void givenNumberOfPosts(@Named("num") int num) {
@@ -21,29 +22,37 @@ public class SavePostSteps extends Steps{
 	
 	@Given("a post with a draft version")
 	public void givenDraftVersion() {
-		/*for(int i = 0; i < num; i++)
-			postApi.createPost();*/
+		retrievedVersion = postApi.retrievePost(1, 1);
+		content1 = retrievedVersion.getContent();
 	}
 	
 	@Given("a post with a published version")
 	public void givenPublishedVersion() {
-		/*for(int i = 0; i < num; i++)
-			postApi.createPost();*/
+		retrievedVersion = postApi.retrievePost(2, 1);
+		retrievedVersion.setState(State.PUBLISHED);
 	}
 	
 	@When("I try to save a post using postid=$postid, versionid=$versionid")
 	public void savePost(@Named("postid") int postId, @Named("version") int versionid) {
-		retrievedPost = postApi.savePost(postId, versionid, "abcd");
+		postApi.savePost(postId, versionid, "abcd");
 	}
 	
 	@Then("the post is updated")
 	public void checkPost() {
-		throw new RuntimeException("The post wasn't saved");
+		if(content1 == null && retrievedVersion.getContent() == null)
+			throw new RuntimeException("The post wasn't updated");
+		if(retrievedVersion.getContent().equals(content1)) {
+			throw new RuntimeException("The post wasn't updated");
+		}
 	}
 	
 	@Then("the post is not updated")
 	public void checkNotPost() {
-		throw new RuntimeException("The post was saved");
+		if(content1 == null && retrievedVersion.getContent() != null)
+			throw new RuntimeException("The post was updated");
+		if(!retrievedVersion.getContent().equals(content1)) {
+			throw new RuntimeException("The post was updated");
+		}
 	}
 }
 	 
