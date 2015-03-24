@@ -19,6 +19,18 @@ public class SavePostSteps extends Steps{
 			postApi.createPost();
 	}
 	
+	@Given("a post with a draft version")
+	public void givenDraftVersion() {
+		/*for(int i = 0; i < num; i++)
+			postApi.createPost();*/
+	}
+	
+	@Given("a post with a published version")
+	public void givenPublishedVersion() {
+		/*for(int i = 0; i < num; i++)
+			postApi.createPost();*/
+	}
+	
 	@When("I try to save a post using postid=$postid, versionid=$versionid")
 	public void savePost(@Named("postid") int postId, @Named("version") int versionid) {
 		retrievedPost = postApi.savePost(postId, versionid, "abcd");
@@ -27,6 +39,11 @@ public class SavePostSteps extends Steps{
 	@Then("the post is updated")
 	public void checkPost() {
 		throw new RuntimeException("The post wasn't saved");
+	}
+	
+	@Then("the post is not updated")
+	public void checkNotPost() {
+		throw new RuntimeException("The post was saved");
 	}
 }
 	 
