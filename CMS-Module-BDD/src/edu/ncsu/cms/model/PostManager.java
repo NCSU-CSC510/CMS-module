@@ -1,4 +1,5 @@
 package edu.ncsu.cms.model;
+import java.sql.Timestamp;
 import java.util.*;
 
 
@@ -30,8 +31,20 @@ public class PostManager {
 		return post.getVersion(versionid);
 	}
 	
-	public Post editPost(Post p, int VersionID) {
-		
+	public Post editPost(Post p, int VersionID, String Content) {
+		Version v= p.getVersion(VersionID);
+		if(v.getState() == State.DRAFT){
+			v.setContent(Content);
+		}
+		else {
+			Version newVersion = new Version();
+			newVersion.setVersionId(VersionID+1);
+			newVersion.setState(State.DRAFT);
+			newVersion.setContent(Content);
+			newVersion.setUserId(v.getUserId());
+			newVersion.setTimestamp(new Timestamp(System.currentTimeMillis()));
+			p.addnewVersion(newVersion);
+		}
 		return p;
 	}
 	public boolean deletePost(int VersionID){
