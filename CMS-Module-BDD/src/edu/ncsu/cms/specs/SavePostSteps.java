@@ -51,6 +51,8 @@ public class SavePostSteps extends Steps{
 	public void checkNotPost() {
 		if(content == null && retrievedVersion.getContent() != null)
 			throw new RuntimeException("The post was updated");
+		if(content == null && retrievedVersion.getContent() == null)
+			return;
 		if(!retrievedVersion.getContent().equals(content)) {
 			throw new RuntimeException("The post was updated");
 		}
