@@ -30,6 +30,12 @@ public class PostManager {
 		Post post = postLists.get(postID);
 		return post.getVersion(versionid);
 	}
+	public void savePost(int postId, int versionId, String content) {
+		Version version = getPostById(postId, versionId);
+		if(version.getState().equals(State.DRAFT)) {
+			version.setContent(content);
+		}
+	}
 	
 	public Post editPost(Post p, int VersionID, String Content) {
 		Version v= p.getVersion(VersionID);

@@ -17,9 +17,9 @@ public class PostApi {
 		return postManager.getPostById(postId);
 	}
 
-	public Post savePost(int postId, int versionId, String content) {
+	public void savePost(int postId, int versionId, String content) {
 
-		return postManager.createNew();
+		postManager.savePost(postId, versionId, content);
 	}
 
 	public Post createPost() {
