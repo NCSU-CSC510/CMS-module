@@ -26,4 +26,8 @@ public class PostApi {
 
 		return postManager.createNew();
 	}
+	
+	public void publishPost(int postId,int version){
+		postManager.publishPost(postId,version);
+	}
 }
