@@ -44,8 +44,20 @@ public class PostManager {
 			postsMap.remove(p);
 		} 
 	}
+	
+	/*
+	 * This method is used when we want to publish a particular version of the Post
+	 */
 	public void publishPostVersion(Post post, int versionID){
 		Version ver = post.getPostVersion(post, versionID);
+		ver.setState(State.PUBLISHED);
+	}
+	
+	/*
+	 * This method is used to publish the current version of the post.
+	 */
+	public void publishPost(Post post){
+		Version ver = post.getCurrentVersion();
 		ver.setState(State.PUBLISHED);
 	}
 }
