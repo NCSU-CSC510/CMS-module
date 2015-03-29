@@ -29,6 +29,15 @@ public class Post {
 		return currentVersion;
 	
 	}
+	public void setCurrentVersion(Version v){
+		
+		currentVersion =v;
+	
+	}
+	public void addnewVersion(Version v) {
+		this.versionList.add(v);
+		
+	}
 	public Version getVersion(int versionid) {
 		for(Version v : versionList) {
 			if(v.getVersionId() == versionid)

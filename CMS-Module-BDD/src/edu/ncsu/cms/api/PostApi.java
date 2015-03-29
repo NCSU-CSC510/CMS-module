@@ -6,19 +6,28 @@ import edu.ncsu.cms.model.Version;
 
 public class PostApi {
 	PostManager postManager = PostManager.instance();
-	
+
 	public Version retrievePost(int postId, int versionId) {
-		
+
 		return postManager.getPostById(postId, versionId);
 	}
-	
+
 	public Post retrievePost(int postId) {
-		
+
 		return postManager.getPostById(postId);
 	}
-	
+
+	public void savePost(int postId, int versionId, String content) {
+
+		postManager.savePost(postId, versionId, content);
+	}
+
 	public Post createPost() {
-		
+
 		return postManager.createNew();
+	}
+	
+	public void publishPost(int postId,int version){
+		postManager.publishPost(postId,version);
 	}
 }
