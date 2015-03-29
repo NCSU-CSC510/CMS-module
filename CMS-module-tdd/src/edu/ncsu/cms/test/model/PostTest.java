@@ -73,4 +73,13 @@ public class PostTest {
 		Version oldVer = newPost.getPostVersion(newPost, 1);
 		assertEquals("Post must be in published State", State.PUBLISHED, oldVer.getState());		
 	}
+	
+	@Test
+	public void testDeletePost(){
+		createNewPost();
+		mgr.deletePost(newPost.getPostID());
+		Post temp = mgr.getPostById(newPost.getPostID());
+		assertEquals("Post should be deleted",null,temp);
+		
+	}
 }

@@ -41,7 +41,7 @@ public class PostManager {
 	public void deletePost(int postID){
 		Post p = getPostById(postID);
 		if(p!=null){
-			postsMap.remove(p);
+			postsMap.remove(p.getPostID());
 		} 
 	}
 	
