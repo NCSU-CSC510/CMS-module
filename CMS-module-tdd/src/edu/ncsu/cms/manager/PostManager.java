@@ -41,19 +41,28 @@ public class PostManager {
 	public void deletePost(int postID){
 		Post p = getPostById(postID);
 		if(p!=null){
-			postsMap.remove(p);
+			postsMap.remove(p.getPostID());
 		} 
 	}
+	
+	/*
+	 * This method is used when we want to publish a particular version of the Post
+	 */
 	public void publishPostVersion(Post post, int versionID){
 		Version ver = post.getPostVersion(post, versionID);
 		ver.setState(State.PUBLISHED);
 	}
 
-	public void likePost( String user){
-		
+	
+	/*
+	 * This method is used to publish the current version of the post.
+	 */
+	public void publishPost(Post post){
+		Version ver = post.getCurrentVersion();
+		ver.setState(State.PUBLISHED);
+
 	}
 
-	public void unlikePost(String user) {
 
-	}
+
 }

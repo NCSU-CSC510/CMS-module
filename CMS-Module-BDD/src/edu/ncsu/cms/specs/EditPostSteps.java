@@ -5,36 +5,35 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import edu.ncsu.cms.model.Post;
+import edu.ncsu.cms.model.PostManager;
+import edu.ncsu.cms.model.State;
+import edu.ncsu.cms.model.Version;
 
 public class EditPostSteps {
 	Post postObj;
-	@Given("API call to the $value method is made")
-	public void givenEditPostCalled(String value) {
-		//postObj=editPost();
+	PostManager p = PostManager.instance();
+	Version version;
+	String state;
+	
+	@Given("API call to the editPost method is made")
+	public void givenEditPostCalled() {
+		postObj = p.createNew();
+		version = postObj.getCurrentVersion();
+		p.editPost(postObj, version.getVersionId(), "content");
 	}
  
-	@When("$PostManager is invoked by $editPost method ")
-	public void whenPostManagerInvoked(String PostManager, String editPost) {
-		//postObj=PostManager.editPost;
+	@When("the post is in $s state ")
+	public void whenPostManagerInvoked(String s) {
+		//check for the state of the object;
+			state = s;
 	}
  
 	
-	@Then("I see post is edited by $role")
-	public void thenUserRoleCanBe(String role) {
-		if (role=="Manager")
-			throw new RuntimeException("User should be manager!");
-	}
-	
-	@Then("I see post is edited by $role not others")
-	public void thenUserRoleShouldBe(String role) {
-		if (role=="PostOwner")
-			throw new RuntimeException("User should be owner!");
-	}
-	
-	@Then("I see post is edited by $role person")
-	public void thenUserRoleShouldNotBe(String role) {
-		if (role!="PostOwner" || role!="Manager")
-			throw new RuntimeException("User should be either PostOwner or Manger!");
+	@Then("post version $content is replaced")
+	public void thenUserRoleCanBe(String content) {
+		if(state.equals( (State.DRAFT).toString() )) {
+			version.setContent(content);
+		}
 	}
 
 }
