@@ -48,4 +48,12 @@ public class PostManager {
 		Version ver = post.getPostVersion(post, versionID);
 		ver.setState(State.PUBLISHED);
 	}
+
+	public void likePost( String user){
+		
+	}
+
+	public void unlikePost(String user) {
+
+	}
 }

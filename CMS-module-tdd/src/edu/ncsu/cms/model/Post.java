@@ -3,6 +3,8 @@ package edu.ncsu.cms.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ncsu.cms.manager.LikeManager;
+
 public class Post {
 
 	private List<Version> versionList = new ArrayList<Version>();
@@ -10,6 +12,8 @@ public class Post {
 	private int postID;
 	private int index=0;	
 	private List<Comment> commentList = new ArrayList<Comment>();
+	private int likesCount=0;
+	private Like likes = new Like();
 	
 	public int getPostID() {
 		return postID;
@@ -51,6 +55,22 @@ public class Post {
 		currentVersion.setVersionId(1);
 		versionList.add(currentVersion);
 		postID=index;
+	}
+	public int getLikesCount() {
+		return likesCount;
+	}
+	public void setLikesCount(int likesCount) {
+		this.likesCount = likesCount;
+	}
+	public Like getLikes() {
+		return likes;
+	}
+	public void setLikes(Like likes) {
+		this.likes = likes;
+	}
+	public int likePost(String user){
+		LikeManager.like(this, user);
+		return this.likesCount;
 	}
 	
 }
