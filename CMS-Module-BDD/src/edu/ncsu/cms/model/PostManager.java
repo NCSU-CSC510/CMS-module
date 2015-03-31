@@ -54,7 +54,7 @@ public class PostManager {
 		}
 		else {
 			Version newVersion = new Version();
-			newVersion.setVersionId(VersionID+1);
+			newVersion.setVersionId(p.getCurrentVersion().getVersionId()+1);
 			newVersion.setState(State.DRAFT);
 			newVersion.setContent(Content);
 			newVersion.setUserId(v.getUserId());
