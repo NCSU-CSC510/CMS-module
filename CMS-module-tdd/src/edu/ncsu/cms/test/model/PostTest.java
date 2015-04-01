@@ -15,7 +15,7 @@ public class PostTest {
 	Post newPost;
 	Version postVer;
 	private void createNewPost(){
-		mgr = new PostManager();
+		mgr = PostManager.getPostManager();
 		newPost = mgr.createPost();
 		assertNotNull(newPost);
 		postVer = newPost.getCurrentVersion();
@@ -27,7 +27,7 @@ public class PostTest {
 	}
 	@Test
 	public void testCreateNewPost(){
-		PostManager mgr = new PostManager();
+		PostManager mgr = PostManager.getPostManager();
 		Post newPost = mgr.createPost();
 		assertNotNull(newPost);
 		Version postVer = newPost.getCurrentVersion();
@@ -40,7 +40,7 @@ public class PostTest {
 	
 	@Test
 	public void testEditPost(){
-		PostManager mgr = new PostManager();
+		PostManager mgr = PostManager.getPostManager();
 		Post newPost = mgr.createPost();
 		assertNotNull(newPost);
 		Version postVer = newPost.getCurrentVersion();
