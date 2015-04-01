@@ -1,5 +1,6 @@
 package edu.ncsu.cms.manager;
 import java.util.HashMap;
+import java.util.List;
 
 import edu.ncsu.cms.model.*;
 
@@ -51,6 +52,12 @@ public class PostManager {
 	public void publishPostVersion(Post post, int versionID){
 		Version ver = post.getPostVersion(post, versionID);
 		ver.setState(State.PUBLISHED);
+		List<Version> verList = post.getVersionList();
+		for (Version version : verList) {
+			if(version.getVersionId()!=versionID){
+				version.setState(State.ARCHIVE);
+			}
+		}
 	}
 
 	
@@ -60,7 +67,12 @@ public class PostManager {
 	public void publishPost(Post post){
 		Version ver = post.getCurrentVersion();
 		ver.setState(State.PUBLISHED);
-
+		List<Version> verList = post.getVersionList();
+		for (Version version : verList) {
+			if(version.getVersionId()!=ver.getVersionId()){
+				version.setState(State.ARCHIVE);
+			}
+		}
 	}
 
 
