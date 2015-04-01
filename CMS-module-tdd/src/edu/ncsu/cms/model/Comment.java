@@ -3,12 +3,14 @@ package edu.ncsu.cms.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ncsu.cms.manager.CommentManager;
+
 public class Comment {
 	private int commentId;
 	private String userId;
-	private int likeCount;
+	private int likeCount=0;
 	private List<Comment> commentList = new ArrayList<Comment>();
-	private Like likes;
+	private Like likes = new Like();;
 	
 	public Like getLikes() {
 		return likes;
@@ -39,5 +41,9 @@ public class Comment {
 	}
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+	public int likeComment(String user){
+		CommentManager.likeComment(this, user);
+		return this.likeCount;
 	}
 }
