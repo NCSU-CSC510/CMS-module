@@ -10,8 +10,26 @@ public class Comment {
 	private String userId;
 	private int likeCount=0;
 	private List<Comment> commentList = new ArrayList<Comment>();
-	private Like likes = new Like();;
+	private Like likes = new Like();
+	private String content;
+	private int commentIdCounter = 0;
 	
+	public Comment(String userId, String content){
+		this.commentId = ++commentIdCounter;
+		this.userId = userId;
+		this.content = content;
+	}
+	public Comment(int commentId, String userId, String content){
+		this.commentId = commentId;
+		this.userId = userId;
+		this.content = content;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public Like getLikes() {
 		return likes;
 	}

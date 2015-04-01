@@ -33,7 +33,7 @@ public class LikeTest {
 		Like likeTest = mock(Like.class);
 		List<String> userList = new ArrayList<String>();	
 		when(likeTest.getUserList()).thenReturn(userList);
-		Comment commentTest = new Comment();
+		Comment commentTest = new Comment("user2","Hi");
 		commentTest.setLikes(likeTest);
 		assertEquals(0,commentTest.getLikes().getUserList().size());
 		System.out.println("Current comment like count = " + commentTest.likeComment("user1"));
