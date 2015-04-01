@@ -17,7 +17,7 @@ public class PostVersionTest {
 	Version postVer;
 	@Before
 	public void createNewPost(){
-		mgr = new PostManager();
+		mgr = PostManager.getPostManager();
 		newPost = mgr.createPost();
 		assertNotNull(newPost);
 		postVer = newPost.getCurrentVersion();
@@ -34,7 +34,7 @@ public class PostVersionTest {
 	
 	@Test
 	public void testPublishPostVersion(){
-		PostManager mgr = new PostManager();
+		PostManager mgr = PostManager.getPostManager();
 		mgr.publishPost(newPost);
 		assertEquals("The new post version should be PUBLISHED",State.PUBLISHED,postVer.getState());
 	}

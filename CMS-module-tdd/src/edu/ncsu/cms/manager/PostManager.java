@@ -7,12 +7,19 @@ import edu.ncsu.cms.model.*;
 public class PostManager {
 
 	private HashMap<Integer,Post> postsMap = new HashMap<Integer,Post>();
-
+	private int counter = 0;
+	private static PostManager postMgr=new PostManager();
+	
 	public Post createPost(){
-
+		counter++;
 		Post newPost = new Post();
+		newPost.setPostID(counter);
 		postsMap.put(newPost.getPostID(), newPost);
 		return newPost;		
+	}
+	
+	public static PostManager getPostManager(){
+		return postMgr;
 	}
 	public void addPostToList(Post p){
 		postsMap.put(p.getPostID(),p);
