@@ -23,16 +23,23 @@ public class EditPostSteps {
 	}
  
 	@When("the post is in $s state ")
-	public void whenPostManagerInvoked(String s) {
+	public void whenPostStateIs(String s) {
 		//check for the state of the object;
 			state = s;
 	}
  
 	
 	@Then("post version $content is replaced")
-	public void thenUserRoleCanBe(String content) {
+	public void thenContentIs(String content) {
 		if(state.equals( (State.DRAFT).toString() )) {
 			version.setContent(content);
+		}
+	}
+	
+	@Then("Then $n version is created")
+	public void thenNewVersion(String n) {
+		if(state.equals( (State.ARCHIVE).toString() )) {
+			version.setContent(n);
 		}
 	}
 
