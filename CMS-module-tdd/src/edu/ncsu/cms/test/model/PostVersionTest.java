@@ -40,6 +40,16 @@ public class PostVersionTest {
 	}
 	
 	@Test
+	public void testEditPostVersion(){
+		PostManager mgr = PostManager.getPostManager();
+		mgr.publishPost(newPost);
+		assertEquals("The new post version should be PUBLISHED",State.PUBLISHED,postVer.getState());
+		Version ver = mgr.editPostVersion(newPost, newPost.getCurrentVersion().getVersionId());
+		assertEquals("Version should be in DRAFT state",State.DRAFT,ver.getState());
+		
+	}
+	
+	@Test
 	public void testArchivedPost(){
 		Version tmpVer = new Version();
 		tmpVer.setContent("This is a new version");
