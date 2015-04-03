@@ -20,12 +20,12 @@ public class CommentTest {
 		postTest.setCommentList(commentList);
 		when(postTest.getCommentList()).thenReturn(commentList);
 		Comment commentTest = new Comment("user1", "Hi!!");
-		assertEquals(0,postTest.getCommentList().size());
+		assertEquals("Initially Post should have 0 comments on it",0,postTest.getCommentList().size());
 		CommentManager.addCommentOnPost(postTest, commentTest);
-		assertEquals(1,postTest.getCommentList().size());
-		assertEquals(1,postTest.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",postTest.getCommentList().get(0).getContent());
-		assertEquals("user1",postTest.getCommentList().get(0).getUserId());
+		assertEquals("After adding a new comment the post now should have 1 comment on it", 1,postTest.getCommentList().size());
+		assertEquals("Comment Id of the first comment should be 1", 1,postTest.getCommentList().get(0).getCommentId());
+		assertEquals("Content of the comment should match with Hi!!","Hi!!",postTest.getCommentList().get(0).getContent());
+		assertEquals("User who added the comment should be user1","user1",postTest.getCommentList().get(0).getUserId());
 	}
 	
 	@Test
@@ -35,12 +35,12 @@ public class CommentTest {
 		parentComment.setCommentList(commentList);
 		when(parentComment.getCommentList()).thenReturn(commentList);
 		Comment commentTest = new Comment("user1", "Hi!!");
-		assertEquals(0,parentComment.getCommentList().size());
+		assertEquals("Initially Comment should have 0 comments on it", 0,parentComment.getCommentList().size());
 		CommentManager.addCommentOnComment(parentComment, commentTest);
-		assertEquals(1,parentComment.getCommentList().size());
-		assertEquals(1,parentComment.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",parentComment.getCommentList().get(0).getContent());
-		assertEquals("user1",parentComment.getCommentList().get(0).getUserId());
+		assertEquals("After adding a new comment the Comment now should have 1 comment on it",1,parentComment.getCommentList().size());
+		assertEquals("Comment Id of the first comment should be 1",1,parentComment.getCommentList().get(0).getCommentId());
+		assertEquals("Content of the comment should match with Hi!!","Hi!!",parentComment.getCommentList().get(0).getContent());
+		assertEquals("User who added the comment should be user1","user1",parentComment.getCommentList().get(0).getUserId());
 	}
 	
 	@Test
