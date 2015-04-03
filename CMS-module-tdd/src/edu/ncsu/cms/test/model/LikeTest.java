@@ -21,10 +21,10 @@ public class LikeTest {
 		Post postTest = new Post();
 		postTest.setLikes(likeTest);
 		assertEquals(0,postTest.getLikes().getUserList().size());
-		System.out.println("Current post like count = " + postTest.likePost("user1"));
+		postTest.likePost("user1");
 		assertEquals(1,postTest.getLikes().getUserList().size());
 		assertEquals("user1",postTest.getLikes().getUserList().get(0));
-		System.out.println("Current post like count = " + postTest.likePost("user1"));
+		postTest.likePost("user1");
 		assertEquals(0,postTest.getLikes().getUserList().size());
 	}
 	
@@ -36,10 +36,10 @@ public class LikeTest {
 		Comment commentTest = new Comment("user2","Hi");
 		commentTest.setLikes(likeTest);
 		assertEquals(0,commentTest.getLikes().getUserList().size());
-		System.out.println("Current comment like count = " + commentTest.likeComment("user1"));
+		commentTest.likeComment("user1");
 		assertEquals(1,commentTest.getLikes().getUserList().size());
 		assertEquals("user1",commentTest.getLikes().getUserList().get(0));
-		System.out.println("Current comment like count = " + commentTest.likeComment("user1"));
+		commentTest.likeComment("user1");
 		assertEquals(0,commentTest.getLikes().getUserList().size());
 	}
 }
