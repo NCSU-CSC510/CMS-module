@@ -35,11 +35,11 @@ public class LikeTest {
 		when(likeTest.getUserList()).thenReturn(userList);
 		Comment commentTest = new Comment("user2","Hi");
 		commentTest.setLikes(likeTest);
-		assertEquals(0,commentTest.getLikes().getUserList().size());
+		assertEquals("Intially Comment should have zero Likes",0,commentTest.getLikes().getUserList().size());
 		commentTest.likeComment("user1");
-		assertEquals(1,commentTest.getLikes().getUserList().size());
-		assertEquals("user1",commentTest.getLikes().getUserList().get(0));
+		assertEquals("Now Comment should have one Like",1,commentTest.getLikes().getUserList().size());
+		assertEquals("User who liked the comment should match with user in the added in the likeList for that comment","user1",commentTest.getLikes().getUserList().get(0));
 		commentTest.likeComment("user1");
-		assertEquals(0,commentTest.getLikes().getUserList().size());
+		assertEquals("User should be deleted from the likeList after he/she dislikes the comment",0,commentTest.getLikes().getUserList().size());
 	}
 }
