@@ -9,7 +9,8 @@ public class Post {
 	private Version currentVersion;
 	private int postId;
 	private static int idCounter;
-	
+	private Like likes;
+	private Comment comments;
 	Post(){
 		idCounter++;
 		currentVersion=new Version();
@@ -49,6 +50,14 @@ public class Post {
 	
 		
 		//toDo
+	}
+	
+	public void addLike() {
+		
+	}
+	
+	public void removeLike() {
+		
 	}
 	
 	

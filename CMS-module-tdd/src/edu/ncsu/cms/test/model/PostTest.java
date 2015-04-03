@@ -14,8 +14,9 @@ public class PostTest {
 	PostManager mgr;
 	Post newPost;
 	Version postVer;
+	
 	private void createNewPost(){
-		mgr = new PostManager();
+		mgr = PostManager.getPostManager();
 		newPost = mgr.createPost();
 		assertNotNull(newPost);
 		postVer = newPost.getCurrentVersion();
@@ -25,9 +26,10 @@ public class PostTest {
 		postVer.setContent(content);
 		assertEquals("Content of post doesn not match", content, postVer.getContent());		
 	}
+	
 	@Test
 	public void testCreateNewPost(){
-		PostManager mgr = new PostManager();
+		PostManager mgr = PostManager.getPostManager();
 		Post newPost = mgr.createPost();
 		assertNotNull(newPost);
 		Version postVer = newPost.getCurrentVersion();
@@ -40,7 +42,7 @@ public class PostTest {
 	
 	@Test
 	public void testEditPost(){
-		PostManager mgr = new PostManager();
+		PostManager mgr = PostManager.getPostManager();
 		Post newPost = mgr.createPost();
 		assertNotNull(newPost);
 		Version postVer = newPost.getCurrentVersion();
@@ -48,7 +50,7 @@ public class PostTest {
 		assertEquals("Post must be in draft State", State.DRAFT, postVer.getState());
 		String content = "This is my first Post";
 		postVer.setContent(content);
-		assertEquals("Content of post doesn not match", content, postVer.getContent());
+		assertEquals("Content of post does not match", content, postVer.getContent());
 		mgr.publishPostVersion(newPost, postVer.getVersionId());
 		assertEquals("Post version Not published",State.PUBLISHED, postVer.getState());
 		Version newVer = mgr.editPostVersion(newPost,postVer.getVersionId());

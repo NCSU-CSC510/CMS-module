@@ -10,7 +10,7 @@ public class Post {
 	private List<Version> versionList = new ArrayList<Version>();
 	private Version currentVersion;
 	private int postID;
-	private int index=0;	
+		
 	private List<Comment> commentList = new ArrayList<Comment>();
 	private int likesCount=0;
 	private Like likes = new Like();
@@ -49,12 +49,10 @@ public class Post {
 		return null;
 	}
 	public Post(){
-		index++;
 		currentVersion=new Version();
 		currentVersion.setState(State.DRAFT);
 		currentVersion.setVersionId(1);
 		versionList.add(currentVersion);
-		postID=index;
 	}
 	public int getLikesCount() {
 		return likesCount;
