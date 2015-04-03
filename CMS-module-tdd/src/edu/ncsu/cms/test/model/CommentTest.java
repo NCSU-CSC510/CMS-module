@@ -84,15 +84,15 @@ public class CommentTest {
 		postTest.setCommentList(commentList);
 		Comment commentTest = new Comment(1,"user1", "Hello!!");
 		when(postTest.getCommentList()).thenReturn(commentList);
-		assertEquals(1,postTest.getCommentList().size());
-		assertEquals(1,postTest.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",postTest.getCommentList().get(0).getContent());
-		assertEquals("user1",postTest.getCommentList().get(0).getUserId());
+		assertEquals("The post should already have only one exiting comment on it",1,postTest.getCommentList().size());
+		assertEquals("The comment id of the exiting comment should be 1",1,postTest.getCommentList().get(0).getCommentId());
+		assertEquals("The content of the existing comment should be Hi!!","Hi!!",postTest.getCommentList().get(0).getContent());
+		assertEquals("The existing comment should have been added by user1","user1",postTest.getCommentList().get(0).getUserId());
 		CommentManager.editCommentOnPost(postTest, commentTest);
-		assertEquals(1,postTest.getCommentList().size());
-		assertEquals(1,postTest.getCommentList().get(0).getCommentId());
-		assertEquals("Hello!!",postTest.getCommentList().get(0).getContent());
-		assertEquals("user1",postTest.getCommentList().get(0).getUserId());
+		assertEquals("After editing the comment, the post should still have 1 comment",1,postTest.getCommentList().size());
+		assertEquals("After editing the comment, the comment id should not change",1,postTest.getCommentList().get(0).getCommentId());
+		assertEquals("The new content of the edited comment should be Hello!!","Hello!!",postTest.getCommentList().get(0).getContent());
+		assertEquals("The user who edited the comment should be user1","user1",postTest.getCommentList().get(0).getUserId());
 	}
 	
 	@Test
@@ -104,15 +104,15 @@ public class CommentTest {
 		parentComment.setCommentList(commentList);
 		Comment commentTest = new Comment(1,"user1", "Hello!!");
 		when(parentComment.getCommentList()).thenReturn(commentList);
-		assertEquals(1,parentComment.getCommentList().size());
-		assertEquals(1,parentComment.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",parentComment.getCommentList().get(0).getContent());
-		assertEquals("user1",parentComment.getCommentList().get(0).getUserId());
+		assertEquals("The comment should already have only one exiting comment on it",1,parentComment.getCommentList().size());
+		assertEquals("The comment id of the exiting comment should be 1", 1,parentComment.getCommentList().get(0).getCommentId());
+		assertEquals("The content of the existing comment should be Hi!!", "Hi!!",parentComment.getCommentList().get(0).getContent());
+		assertEquals("The existing comment should have been added by user1", "user1",parentComment.getCommentList().get(0).getUserId());
 		CommentManager.editCommentOnComment(parentComment, commentTest);
-		assertEquals(1,parentComment.getCommentList().size());
-		assertEquals(1,parentComment.getCommentList().get(0).getCommentId());
-		assertEquals("Hello!!",parentComment.getCommentList().get(0).getContent());
-		assertEquals("user1",parentComment.getCommentList().get(0).getUserId());
+		assertEquals("After editing the comment, the post should still have 1 comment", 1,parentComment.getCommentList().size());
+		assertEquals("After editing the comment, the comment id should not change", 1,parentComment.getCommentList().get(0).getCommentId());
+		assertEquals("The new content of the edited comment should be Hello!!", "Hello!!",parentComment.getCommentList().get(0).getContent());
+		assertEquals("The user who edited the comment should be user1", "user1",parentComment.getCommentList().get(0).getUserId());
 	}
 	
 	
