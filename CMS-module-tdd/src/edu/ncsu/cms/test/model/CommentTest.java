@@ -51,12 +51,12 @@ public class CommentTest {
 		commentList.add(commentTest);
 		postTest.setCommentList(commentList);
 		when(postTest.getCommentList()).thenReturn(commentList);
-		assertEquals(1,postTest.getCommentList().size());
-		assertEquals(1,postTest.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",postTest.getCommentList().get(0).getContent());
-		assertEquals("user1",postTest.getCommentList().get(0).getUserId());
+		assertEquals("Initially the post should have 1 comment on it",1,postTest.getCommentList().size());
+		assertEquals("The comment should have a comment id of 1",1,postTest.getCommentList().get(0).getCommentId());
+		assertEquals("The content of the comment should be Hi!!","Hi!!",postTest.getCommentList().get(0).getContent());
+		assertEquals("The comment should have been added by user1","user1",postTest.getCommentList().get(0).getUserId());
 		CommentManager.deleteCommentOnPost(postTest, commentTest);
-		assertEquals(0,postTest.getCommentList().size());
+		assertEquals("After the comment is deleted, the post should have 0 comments on it",0,postTest.getCommentList().size());
 	}
 	
 	@Test
@@ -67,12 +67,12 @@ public class CommentTest {
 		commentList.add(commentTest);
 		parentComment.setCommentList(commentList);
 		when(parentComment.getCommentList()).thenReturn(commentList);
-		assertEquals(1,parentComment.getCommentList().size());
-		assertEquals(1,parentComment.getCommentList().get(0).getCommentId());
-		assertEquals("Hi!!",parentComment.getCommentList().get(0).getContent());
-		assertEquals("user1",parentComment.getCommentList().get(0).getUserId());
+		assertEquals("Initially the comment should have 1 comment on it",1,parentComment.getCommentList().size());
+		assertEquals("The new comment should have a comment id of 1",1,parentComment.getCommentList().get(0).getCommentId());
+		assertEquals("The new content of the comment should be Hi!!","Hi!!",parentComment.getCommentList().get(0).getContent());
+		assertEquals("The new comment should have been added by user1","user1",parentComment.getCommentList().get(0).getUserId());
 		CommentManager.deleteCommentOnComment(parentComment, commentTest);
-		assertEquals(0,parentComment.getCommentList().size());
+		assertEquals("After the comment is deleted, the comment should have 0 comments on it",0,parentComment.getCommentList().size());
 	}
 	
 	@Test
