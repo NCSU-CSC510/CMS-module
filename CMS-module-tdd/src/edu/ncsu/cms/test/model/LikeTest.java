@@ -20,12 +20,12 @@ public class LikeTest {
 		when(likeTest.getUserList()).thenReturn(userList);
 		Post postTest = new Post();
 		postTest.setLikes(likeTest);
-		assertEquals(0,postTest.getLikes().getUserList().size());
+		assertEquals("Intially Post should have zero Likes", 0, postTest.getLikes().getUserList().size());
 		postTest.likePost("user1");
-		assertEquals(1,postTest.getLikes().getUserList().size());
-		assertEquals("user1",postTest.getLikes().getUserList().get(0));
+		assertEquals("Now Post should have one Like", 1, postTest.getLikes().getUserList().size());
+		assertEquals("User who liked the post should match with user in the added in the likeList for that post", "user1",postTest.getLikes().getUserList().get(0));
 		postTest.likePost("user1");
-		assertEquals(0,postTest.getLikes().getUserList().size());
+		assertEquals("User should be deleted from the likeList after he/she dislikes the post",0,postTest.getLikes().getUserList().size());
 	}
 	
 	@Test
