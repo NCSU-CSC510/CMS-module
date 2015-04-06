@@ -48,8 +48,11 @@ The functionalities implemented in this CMS system are
 - UML Diagrams:
 
   - Class Diagram
-  - Sequence Diagram:
-  - State Diagram: 
+  - Sequence Diagram: Below is the sequence diagram for Like
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeSeqDiag.png "Like Sequence Diagram")
+  - State Diagram: Below is the Post state Diagram
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/PostStateDiag.png "Post State Diagram")
+
 
 ## Methods:
 - Test Driven Development:
