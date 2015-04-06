@@ -19,3 +19,30 @@ A software engineering project (CSC 510)
   - Testing style used to enforce the principle that software should be written to meet some requirement or specification
   - Prior to writing code, the required functionality is specified as tests. Then code is written to make the tests pass
   - Refactoring is done as required to reform code to account for reusability, maintainability and robustness but ensuring that tests continue to pass
+
+# System Description:
+A comparison between the BDD and TDD approach has been made by developing a Content Management System (CMS)API.
+The functionalities implemented in this CMS system are:
+-Managing Posts:
+  - Create new post
+  - Edit post
+  - Save post
+  - Publish post
+  - Delete post
+  - Retrieve post
+  - Retrieve post-version
+  - Searching filtering and Sorting
+
+- Versioning
+  - Incorporated in Content Management
+  - Version control
+  - Each version is associated with a State
+
+- Comments
+  - Every Post is associated with a set of Comments.
+
+- Likes 
+  - A Post as well as Comments have this feature incorporated.
+  - This feature is used to upvote a Post/Comment by the users.
+ 
+  
