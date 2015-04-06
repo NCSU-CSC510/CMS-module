@@ -118,8 +118,8 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
 
 ## References:
 1. Solis, C., Xiaofeng Wang - [A Study of the Characteristics of Behaviour Driven Development](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6068372)
-2. 
-3. 
+2. Kent Beck - [Test-driven Development: By Example](https://books.google.com/books?id=gFgnde_vwMAC&source=gbs_navlinks_s)
+3. Jaelson Castro, Manuel Kolp, John Mylopoulos - [A Requirements-Driven Development Methodology](http://link.springer.com/chapter/10.1007/3-540-45341-5_8)
 4. http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd
 5. https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd
 6. http://www.ryangreenhall.com/articles/bdd-by-example.html
