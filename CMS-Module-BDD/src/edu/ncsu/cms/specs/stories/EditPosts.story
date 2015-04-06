@@ -1,19 +1,11 @@
-Scenario 1 : Manager editing a post
+Scenario 1 : Editing  a post in Draft state
 
 Given API call to the editPost method is made
-When PostManager is invoked by editPost method
-Then I see post is edited by Manager 
+When the post is in DRAFT state
+Then post version content is replaced 
 
-
-Scenario 2 : PostOwner editing a post
-
-Given API call to the editPost method is made
-When PostManager is invoked by editPost method
-Then I see post is edited by PostOwner not others
-
-
-Scenario 3 : Unauthorized user is editing a post
+Scenario 2 : Editing  a post in Archive state
 
 Given API call to the editPost method is made
-When PostManager is invoked by editPost method
-Then I see post is edited by random person
+When the post is in ARCHIVE state
+Then new version is created 

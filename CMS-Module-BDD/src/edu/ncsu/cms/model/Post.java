@@ -9,7 +9,8 @@ public class Post {
 	private Version currentVersion;
 	private int postId;
 	private static int idCounter;
-	
+	private Like likes;
+	private Comment comments;
 	Post(){
 		idCounter++;
 		currentVersion=new Version();
@@ -29,6 +30,11 @@ public class Post {
 		return currentVersion;
 	
 	}
+	public void setCurrentVersion(Version v){
+		
+		currentVersion =v;
+	
+	}
 	public void addnewVersion(Version v) {
 		this.versionList.add(v);
 		
@@ -44,6 +50,14 @@ public class Post {
 	
 		
 		//toDo
+	}
+	
+	public void addLike() {
+		
+	}
+	
+	public void removeLike() {
+		
 	}
 	
 	

@@ -3,33 +3,13 @@ package edu.ncsu.cms.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.ncsu.cms.manager.CommentManager;
-
 public class Comment {
 	private int commentId;
 	private String userId;
-	private int likeCount=0;
+	private int likeCount;
 	private List<Comment> commentList = new ArrayList<Comment>();
-	private Like likes = new Like();
-	private String content;
-	private int commentIdCounter = 0;
+	private Like likes;
 	
-	public Comment(String userId, String content){
-		this.commentId = ++commentIdCounter;
-		this.userId = userId;
-		this.content = content;
-	}
-	public Comment(int commentId, String userId, String content){
-		this.commentId = commentId;
-		this.userId = userId;
-		this.content = content;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
 	public Like getLikes() {
 		return likes;
 	}
@@ -59,9 +39,5 @@ public class Comment {
 	}
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
-	}
-	public int likeComment(String user){
-		CommentManager.likeComment(this, user);
-		return this.likeCount;
 	}
 }

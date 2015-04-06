@@ -36,6 +36,16 @@ public class PostManager {
 			version.setContent(content);
 		}
 	}
+	public void publishPost(int postId, int versionId) {
+		Version version = getPostById(postId, versionId);
+		Post post =  postLists.get(postId);
+		if(version.getState().equals(State.DRAFT)) {
+			Version prev=post.getCurrentVersion();
+			prev.setState(State.ARCHIVE);
+			version.setState(State.PUBLISHED);
+			post.setCurrentVersion(version);
+		}
+	}
 	
 	public Post editPost(Post p, int VersionID, String Content) {
 		Version v= p.getVersion(VersionID);
@@ -44,7 +54,7 @@ public class PostManager {
 		}
 		else {
 			Version newVersion = new Version();
-			newVersion.setVersionId(VersionID+1);
+			newVersion.setVersionId(p.getCurrentVersion().getVersionId()+1);
 			newVersion.setState(State.DRAFT);
 			newVersion.setContent(Content);
 			newVersion.setUserId(v.getUserId());
