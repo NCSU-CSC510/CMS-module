@@ -64,7 +64,7 @@ The functionalities implemented in this CMS system are
   - Finally we refactored our code, to remove the duplications and pieces of code written just to pass our test case.
   - This is our REFACTOR phase
   - Below is some sample code and test snippet.
-  ![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPost.png "Edit Post Version Code")
-  ![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPostTest.png "Edit Post Version Test Code")
-  ![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeTest.png "Like Test Code")
+![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPost.png "Edit Post Version Code")
+![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPostTest.png "Edit Post Version Test Code")
+![alt text]https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeTest.png "Like Test Code")
 
