@@ -202,7 +202,7 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
 1. Solis, C., Xiaofeng Wang - [A Study of the Characteristics of Behaviour Driven Development](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6068372)
 2. Kent Beck - [Test-driven Development: By Example](https://books.google.com/books?id=gFgnde_vwMAC&source=gbs_navlinks_s)
 3. Jaelson Castro, Manuel Kolp, John Mylopoulos - [A Requirements-Driven Development Methodology](http://link.springer.com/chapter/10.1007/3-540-45341-5_8)
-4. http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd
-5. https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd
-6. http://www.ryangreenhall.com/articles/bdd-by-example.html
-7. http://programmers.stackexchange.com/questions/234753/are-there-any-cases-when-one-should-not-use-test-driven-development
+4. Gabo Esquivel - [Differences Between TDD, ATDD and BDD](http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd)
+5. Josh Davis - [The Difference Between TDD and BDD](https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd)
+6. Ryan Greenhall - [Behaviour Driven Development: By Example](http://www.ryangreenhall.com/articles/bdd-by-example.html)
+7. Stack Overflow - [Are there any cases when one should not use Test Driven Development?](http://programmers.stackexchange.com/a/234760)
