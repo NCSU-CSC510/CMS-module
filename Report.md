@@ -82,7 +82,16 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
   - The main components of a JBehave workflow are :
     1. Stories - Tests and data described in an understandable manner which are picked up by the test engine to drive the tests.
     2. Specs (Tests) - The java code that mirrors the stories by initializing and calling application code to change and check application state is expected.
-    3. Engine (JBehaveRunner) - The JBehave engine which orchestrates the running of the the stories and specs to produce JUnit type tests which are run and the results are collated as a JUnit report
+    3. Engine (JBehaveRunner) - The JBehave engine which orchestrates the running of the the stories and specs to produce JUnit type tests which are run and the results are collated as a JUnit report.
+  - The workflow of actually developing functionality in a BDD style of development that was followed was:
+    1. Write a story and spec for the functionality
+    2. For successful compilation of the spec, which calls application code, stubs may need to be created
+    3. Tests will fail expectations when testing against stubs
+    4. When enough tests are written to successfully the functionality being tested, the actual implementation code is written
+    5. Failed tests are made to pass by writing enough code
+    6. When all tests pass, code is refactored for maintainability, generality while ensuring all tests continue to pass
+
+
 
 
 
