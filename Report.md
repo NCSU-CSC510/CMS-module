@@ -98,6 +98,8 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
 ## Results:
 - TDD : We have created a simple content management system with basic features like create post,edit post, add comment, like a post etc. In total we have added 16 test cases using JUnit and Mockito. Below is the JUnit run report of all the test cases. 
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/JUnit_Report.png "JUnit Report")
+- BDD : Application functionality for Posts, Versioning, Comments and like as well as stories and specs against the same. The stories and specs cover every aspect of the functionality since BDD was followed, no code goes untested
+![BDD Screenshot](https://raw.githubusercontent.com/NCSU-CSC510/CMS-module/master/BDD-screen.png)
 
 ## Discussion:
 - Learning curve for the tools:
