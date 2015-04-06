@@ -82,17 +82,16 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
   - JUnit and Mockito : The team members were familiar with writing JUnit test cases so writing JUnit test cases wasn't that difficult. Mockito framework was something new. So it took some time to understand Mockito and how and where we can use Mockito framework in our project.
 - Development time : With use of TDD, the initial development time increases which might overshadow the long term gain like software quality etc. With the use of BDD, we can develop test cases faster with users use cases as its main focus. This helps faster development and gives better clarity.
 - Scope: BDD tests an entire functionality of the system. For example, Consider the save posts spec. The tests are written for the below functionality: Scenario: Save a post (DRAFT)
+  Given number of posts 1
+  Given a post with a draft version
+  When I try to save a post using postid=1, versionid=1
+  Then the post is updated
+  Given number of posts 1
+  Given a post with a published version
+  When I try to save a post using postid=2, versionid=1
+  Then the post is not updated.
 
-Given number of posts 1
-Given a post with a draft version
-When I try to save a post using postid=1, versionid=1
-Then the post is updated
-Given number of posts 1
-Given a post with a published version
-When I try to save a post using postid=2, versionid=1
-Then the post is not updated.
-
-The scope if TDD is only testing a particular method. For example : We have method say editPostVersion() in PostManager class. So testEditPost() testcase just focuses on if the particular method is giving expected output or not.
+  The scope if TDD is only testing a particular method. For example : We have method say editPostVersion() in PostManager class. So testEditPost() testcase just focuses on if the particular method is giving expected output or not.
 
 - Granularity: BDD does not focus on how the method for the spec has been implemented. The main focus of BDD is on the user specification. TDD focuses on the specific implementation of the method. TDD is used to test the source code to check whether it returns the desired value or not. It is difficult to write TDD test cases, as it is not always true that the programmer will know the results correctly.
 - Ease of understanding : On comparing the BDD and TDD tests, BDD stories give a clearer understanding on what the method is expected to do.TDD on the other hand gives more insight into how the method has been implemented. So to a user who doesn't know the internal implementation, understanding TDD test cases is tough.
@@ -104,7 +103,7 @@ The scope if TDD is only testing a particular method. For example : We have meth
 - Test driven development focuses on making sure code is correct
 - Behaviour driven development focuses on making sure requirements are satisfied
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/ConclusionMantra.png "Conclusion")
-Reference: http://www.radicalgeek.co.uk/Post/14/acceptance-test-driven-development-of-an-mvc-web-application-using-specflow-and-selenium-webdriver
+  Reference: http://www.radicalgeek.co.uk/Post/14/acceptance-test-driven-development-of-an-mvc-web-application-using-specflow-and-selenium-webdriver
 
 
 ## Future Work:
@@ -112,7 +111,7 @@ Reference: http://www.radicalgeek.co.uk/Post/14/acceptance-test-driven-developme
 - Test correctness and coverage comparison - Does either TDD or BDD produce more correct or useful tests?
 
 ## References:
-1.http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd/
-2.https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/
+1.http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd
+2.https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd
 3.Behaviour Driven Development: By Example http://www.ryangreenhall.com/articles/bdd-by-example.html
 4.http://programmers.stackexchange.com/questions/234753/are-there-any-cases-when-one-should-not-use-test-driven-development
