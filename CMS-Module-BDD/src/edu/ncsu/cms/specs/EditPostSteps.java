@@ -38,7 +38,16 @@ public class EditPostSteps {
 	
 	@Then("Then $n version is created")
 	public void thenNewVersion(String n) {
+		Version v2 = new Version();
 		if(state.equals( (State.ARCHIVE).toString() )) {
+			v2.setContent(n);
+		}
+	}
+	
+	@Then("Then $n version is created in $s State")
+	public void thenNewDraft(String n) {
+		Version v2 = new Version();
+		if(state.equals( (State.PUBLISHED).toString() )) {
 			version.setContent(n);
 		}
 	}
