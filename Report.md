@@ -51,4 +51,20 @@ The functionalities implemented in this CMS system are
   - Sequence Diagram:
   - State Diagram: 
 
+## Methods:
+  - Test Driven Development:
+  - We have used Junit and Mockito to test the different features.
+  - We first wrote the different test cases based on the intended behaviour of the system.
+  - We have used mocking to mock different objects like Database.
+  - This is our “RED” phase.
+  - After this we wrote the main implementation of the features.
+  - Then we run our test cases again, and checked if they passed or not.
+  - If testcases didn’t pass, we had to modify our implementation.
+  - This is our “GREEN” phase.
+  - Finally we refactored our code, to remove the duplications and pieces of code written just to pass our test case.
+  - This is our REFACTOR phase
+  - Below is some sample code and test snippet.
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPost.png "Edit Post Version Code")
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPostTest.png "Edit Post Version Test Code")
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeTest.png "Like Test Code")
 
