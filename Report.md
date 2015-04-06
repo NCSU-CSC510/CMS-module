@@ -22,8 +22,8 @@ A software engineering project (CSC 510)
 
 # System Description:
 A comparison between the BDD and TDD approach has been made by developing a Content Management System (CMS)API.
-The functionalities implemented in this CMS system are:
--Managing Posts:
+The functionalities implemented in this CMS system are
+- Managing Posts:
   - Create new post
   - Edit post
   - Save post
