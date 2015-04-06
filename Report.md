@@ -45,4 +45,10 @@ The functionalities implemented in this CMS system are
   - A Post as well as Comments have this feature incorporated.
   - This feature is used to upvote a Post/Comment by the users.
  
-  
+- UML Diagrams:
+
+  - Class Diagram
+  - Sequence Diagram:
+  - State Diagram: 
+
+
