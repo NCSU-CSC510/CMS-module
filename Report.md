@@ -90,10 +90,73 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
     4. When enough tests are written to successfully the functionality being tested, the actual implementation code is written
     5. Failed tests are made to pass by writing enough code
     6. When all tests pass, code is refactored for maintainability, generality while ensuring all tests continue to pass
+  
+  - Example:
+  Consider the scenario: Save a post (DRAFT)
+  - Step 1: Write a story. The below story is written and saved in a file called SavePosts.story
+  <pre>
+     Scenario: Save a post (DRAFT)
 
+     Given number of posts 1
+    Given a post with a draft version
+    When I try to save a post using postid=1, versionid=1
+    Then the post is updated
+    
+    Given number of posts 1
+    Given a post with a published version
+    When I try to save a post using postid=2, versionid=1
+    Then the post is not updated
 
-
-
+  </pre>
+  
+  - Step 2: For the above story, a spec which has methods annotated by the same lines of text is saved in SavePostSteps.java
+     ```java
+     
+          public class SavePostSteps extends Steps{
+        	PostApi postApi = new PostApi();
+        	Post retrievedPost;
+        	Version retrievedVersion;
+        	String content;
+        	@Given("number of posts $num")
+        	public void givenNumberOfPosts(@Named("num") int num) {
+        		for(int i = 0; i < num; i++)
+        			postApi.createPost();
+        	}
+        	@Given("a post with a draft version")
+        	public void givenDraftVersion() {
+        		retrievedVersion = postApi.retrievePost(1, 1);
+        		content = retrievedVersion.getContent();
+        	}
+        	@Given("a post with a published version")
+        	public void givenPublishedVersion() {
+        		retrievedVersion = postApi.retrievePost(2, 1);
+        		retrievedVersion.setState(State.PUBLISHED);
+        		content = retrievedVersion.getContent();
+        	}
+        	@When("I try to save a post using postid=$postid, versionid=$versionid")
+        	public void savePost(@Named("postid") int postId, @Named("version") int versionid) {
+        		postApi.savePost(postId, versionid, "abcd");
+        	}
+        	@Then("the post is updated")
+        	public void checkPost() {
+        		if(content == null && retrievedVersion.getContent() == null)
+        			throw new RuntimeException("The post wasn't updated");
+        		if(retrievedVersion.getContent().equals(content)) {
+        			throw new RuntimeException("The post wasn't updated");
+        		}
+        	}
+        	@Then("the post is not updated")
+        	public void checkNotPost() {
+        		if(content == null && retrievedVersion.getContent() != null)
+        			throw new RuntimeException("The post was updated");
+        		if(content == null && retrievedVersion.getContent() == null)
+        			return;
+        		if(!retrievedVersion.getContent().equals(content)) {
+        			throw new RuntimeException("The post was updated");
+        		}
+        	}
+        }
+      ```
 
 ## Results:
 - TDD : We have created a simple content management system with basic features like create post,edit post, add comment, like a post etc. In total we have added 16 test cases using JUnit and Mockito. Below is the JUnit run report of all the test cases. 
