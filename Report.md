@@ -52,7 +52,7 @@ The functionalities implemented in this CMS system are
   - State Diagram: 
 
 ## Methods:
-  - Test Driven Development:
+- Test Driven Development:
   - We have used Junit and Mockito to test the different features.
   - We first wrote the different test cases based on the intended behaviour of the system.
   - We have used mocking to mock different objects like Database.
@@ -67,4 +67,52 @@ The functionalities implemented in this CMS system are
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPost.png "Edit Post Version Code")
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/EditPostTest.png "Edit Post Version Test Code")
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeTest.png "Like Test Code")
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/Mantra.png "TDD Mantra")
+Ref:http://otroblogmas.com/tdd-buenas-practicas/
 
+- Behavior driven development
+
+## Results:
+- TDD : We have created a simple content management system with basic features like create post,edit post, add comment, like a post etc. In total we have added 16 test cases using JUnit and Mockito. Below is the JUnit run report of all the test cases. 
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/JUnit_Report.png "JUnit Report")
+
+## Discussion:
+- Learning curve for the tools:
+  - Jbehave: Since neither of the team members were familiar to the tool, the first few days of the project were spent in learning about using the tool, writing stories.
+  - JUnit and Mockito : The team members were familiar with writing JUnit test cases so writing JUnit test cases wasn't that difficult. Mockito framework was something new. So it took some time to understand Mockito and how and where we can use Mockito framework in our project.
+- Development time : With use of TDD, the initial development time increases which might overshadow the long term gain like software quality etc. With the use of BDD, we can develop test cases faster with users use cases as its main focus. This helps faster development and gives better clarity.
+- Scope: BDD tests an entire functionality of the system. For example, Consider the save posts spec. The tests are written for the below functionality: Scenario: Save a post (DRAFT)
+
+Given number of posts 1
+Given a post with a draft version
+When I try to save a post using postid=1, versionid=1
+Then the post is updated
+Given number of posts 1
+Given a post with a published version
+When I try to save a post using postid=2, versionid=1
+Then the post is not updated.
+
+The scope if TDD is only testing a particular method. For example : We have method say editPostVersion() in PostManager class. So testEditPost() testcase just focuses on if the particular method is giving expected output or not.
+
+- Granularity: BDD does not focus on how the method for the spec has been implemented. The main focus of BDD is on the user specification. TDD focuses on the specific implementation of the method. TDD is used to test the source code to check whether it returns the desired value or not. It is difficult to write TDD test cases, as it is not always true that the programmer will know the results correctly.
+- Ease of understanding : On comparing the BDD and TDD tests, BDD stories give a clearer understanding on what the method is expected to do.TDD on the other hand gives more insight into how the method has been implemented. So to a user who doesn't know the internal implementation, understanding TDD test cases is tough.
+- Interaction level with users: TDD is more developer centric whereas BDD is more user centric. So with BDD, user can better understand the test case and verify if the system is producing expected output or not.
+
+## Conclusion:
+- Behavior-driven development is “test-driven development done right”.
+- Behavior driven development is set of best practices to develop software by centering your users.
+- Test driven development focuses on making sure code is correct
+- Behaviour driven development focuses on making sure requirements are satisfied
+![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/ConclusionMantra.png "Conclusion")
+Reference: http://www.radicalgeek.co.uk/Post/14/acceptance-test-driven-development-of-an-mvc-web-application-using-specflow-and-selenium-webdriver
+
+
+## Future Work:
+- Since our project did a comparison of two parallel projects working with TDD and BDD, another comparison could be made with a project which does TDD and BDD in tandem.
+- Test correctness and coverage comparison - Does either TDD or BDD produce more correct or useful tests?
+
+## References:
+1.http://gaboesquivel.com/blog/2014/differences-between-tdd-atdd-and-bdd/
+2.https://joshldavis.com/2013/05/27/difference-between-tdd-and-bdd/
+3.Behaviour Driven Development: By Example http://www.ryangreenhall.com/articles/bdd-by-example.html
+4.http://programmers.stackexchange.com/questions/234753/are-there-any-cases-when-one-should-not-use-test-driven-development
