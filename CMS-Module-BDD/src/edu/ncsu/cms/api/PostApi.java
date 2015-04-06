@@ -28,6 +28,6 @@ public class PostApi {
 	}
 	
 	public void publishPost(int postId,int version){
-		postManager.publishPost(postId,version);
+		postManager.publishPost(postId, version); 
 	}
 }
