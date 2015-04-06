@@ -78,6 +78,14 @@ Ref:http://otroblogmas.com/tdd-buenas-practicas/
 
 - Behavior driven development
 
+  - The BDD version of the application was developed using JBehave. JBehave is a Java framework for developing applications using BDD principles. 
+  - The main components of a JBehave workflow are :
+    1. Stories - Tests and data described in an understandable manner which are picked up by the test engine to drive the tests.
+    2. Specs (Tests) - The java code that mirrors the stories by initializing and calling application code to change and check application state is expected.
+    3. Engine (JBehaveRunner) - The JBehave engine which orchestrates the running of the the stories and specs to produce JUnit type tests which are run and the results are collated as a JUnit report
+
+
+
 ## Results:
 - TDD : We have created a simple content management system with basic features like create post,edit post, add comment, like a post etc. In total we have added 16 test cases using JUnit and Mockito. Below is the JUnit run report of all the test cases. 
 ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/JUnit_Report.png "JUnit Report")
