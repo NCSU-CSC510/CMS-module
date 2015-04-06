@@ -48,7 +48,7 @@ The functionalities implemented in this CMS system are
 - UML Diagrams:
 
   - Class Diagram: Below is the class diagram for Content Management System
-      - ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeSeqDiag.png "Like Sequence Diagram")
+      - ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/Content Management System_class.jpg "Like Sequence Diagram")
 
   - Sequence Diagram: Below is the sequence diagram for Like
       - ![alt text](https://github.com/NCSU-CSC510/CMS-module/blob/master/LikeSeqDiag.png "Like Sequence Diagram")
